@@ -21,6 +21,18 @@ connection.onInitialize((): InitializeResult => ({
   },
 }));
 
+function inferType(node: Node): string {
+  if (node.type !== 'array') {
+    return node.type;
+  }
+  const elementTypes = (node.children ?? []).map((child) => inferType(child));
+  const [first] = elementTypes;
+  if (first === undefined || new Set(elementTypes).size > 1) {
+    return 'array';
+  }
+  return `${first}[]`;
+}
+
 connection.languages.inlayHint.on((params): InlayHint[] => {
   const document = documents.get(params.textDocument.uri);
   if (!document) {
@@ -34,32 +46,29 @@ connection.languages.inlayHint.on((params): InlayHint[] => {
 
   const hints: InlayHint[] = [];
 
-  function traverse(node: Node): void {
-    if (!document) {
-      return undefined;
-    }
+  function traverse(node: Node, doc: TextDocument): void {
     if (node.type === 'property' && node.children && node.children.length === 2) {
       const key = node.children.at(0);
       const value = node.children.at(1);
       if (!key || !value) {
-        throw new Error('Invalid key or value');
+        return;
       }
 
       const endOfKeyOffset = key.offset + key.length;
       hints.push({
-        position: document?.positionAt(endOfKeyOffset),
-        label: `: ${value.type}`,
+        position: doc.positionAt(endOfKeyOffset),
+        label: `: ${inferType(value)}`,
         kind: InlayHintKind.Type,
         paddingLeft: true,
       });
     }
 
     for (const child of node.children ?? []) {
-      traverse(child);
+      traverse(child, doc);
     }
   }
 
-  traverse(tree);
+  traverse(tree, document);
   return hints;
 });
 
