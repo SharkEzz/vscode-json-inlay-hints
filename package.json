@@ -8,10 +8,10 @@
   ],
   "types": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc -b",
     "clean": "tsc -b --clean",
     "watch": "tsc -b -w",
+    "lint": "oxlint",
     "fmt": "oxfmt"
   },
   "devDependencies": {

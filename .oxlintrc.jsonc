@@ -18,5 +18,6 @@
   "ignorePatterns": ["node_modules", "out"],
   "options": {
     "typeAware": true,
+    "reportUnusedDisableDirectives": "warn",
   },
 }
