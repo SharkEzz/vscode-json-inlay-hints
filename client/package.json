@@ -9,12 +9,5 @@
   },
   "devDependencies": {
     "@types/vscode": "^1.134.0"
-  },
-  "activationEvents": [
-    "onLanguage:json",
-    "onLanguage:jsonc"
-  ],
-  "engines": {
-    "vscode": "^1.134.0"
   }
 }

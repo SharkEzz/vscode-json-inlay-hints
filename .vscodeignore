@@ -1,0 +1,10 @@
+**/src
+**/*.ts
+**/*.map
+**/tsconfig*.json
+**/*.tsbuildinfo
+node_modules/json-inlay-hints-*
+.vscode/
+.oxlintrc.jsonc
+.oxfmtrc.jsonc
+.gitignore

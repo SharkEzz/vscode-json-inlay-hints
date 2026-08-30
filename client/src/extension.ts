@@ -10,7 +10,7 @@ import {
 let client: LanguageClient | null = null;
 
 export async function activate(context: ExtensionContext): Promise<void> {
-  const serverModule = context.asAbsolutePath(path.join('..', 'server', 'out', 'server.js'));
+  const serverModule = context.asAbsolutePath(path.join('server', 'out', 'server.js'));
 
   const serverOptions: ServerOptions = {
     run: { module: serverModule, transport: TransportKind.ipc },

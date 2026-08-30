@@ -1,24 +1,39 @@
 {
   "name": "json-inlay-hints",
+  "displayName": "JSON Inlay Hints",
   "version": "1.0.0",
   "private": true,
+  "description": "Show the type of your properties inside your JSON / JSONC files",
+  "license": "MIT",
+  "repository": "github:SharkEzz/vscode-json-inlay-hints",
+  "publisher": "SharkEzz",
   "workspaces": [
     "client",
     "server"
   ],
+  "main": "client/out/extension.js",
   "types": "module",
   "scripts": {
     "build": "tsc -b",
     "clean": "tsc -b --clean",
     "watch": "tsc -b -w",
     "lint": "oxlint",
-    "fmt": "oxfmt"
+    "fmt": "oxfmt",
+    "package": "tsc -b && npx @vscode/vsce package"
   },
   "devDependencies": {
     "@types/node": "^26.4.0",
+    "@vscode/vsce": "^3.9.2",
     "oxfmt": "^0.65.0",
     "oxlint": "^1.80.0",
     "oxlint-tsgolint": "^7.0.2001",
     "typescript": "^7.0.2"
+  },
+  "activationEvents": [
+    "onLanguage:json",
+    "onLanguage:jsonc"
+  ],
+  "engines": {
+    "vscode": "^1.134.0"
   }
 }
