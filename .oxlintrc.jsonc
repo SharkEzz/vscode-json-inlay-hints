@@ -1,0 +1,22 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["oxc", "node", "typescript", "promise"],
+  "categories": {
+    "correctness": "error",
+    "perf": "warn",
+    "suspicious": "warn",
+    "style": "warn",
+  },
+  "rules": {
+    "sort-keys": "off",
+    "no-magic-numbers": "off",
+    "func-style": ["error", "declaration"],
+    "sort-imports": "off",
+    "one-var": "off",
+    "max-statements": "off",
+  },
+  "ignorePatterns": ["node_modules", "out"],
+  "options": {
+    "typeAware": true,
+  },
+}

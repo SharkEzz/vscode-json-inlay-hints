@@ -1,0 +1,13 @@
+{
+  "name": "json-inlay-hints-server",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "out/server.js",
+  "types": "out/server.d.ts",
+  "dependencies": {
+    "jsonc-parser": "^3.3.1",
+    "vscode-languageserver": "^10.1.1",
+    "vscode-languageserver-textdocument": "^1.0.14"
+  }
+}

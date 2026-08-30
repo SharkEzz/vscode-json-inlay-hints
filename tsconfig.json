@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "module": "node20",
+    "target": "es2024",
+    "types": ["node"],
+    "skipLibCheck": true,
+    "verbatimModuleSyntax": true,
+    "erasableSyntaxOnly": true,
+    "rewriteRelativeImportExtensions": true,
+    "strict": true,
+    "exactOptionalPropertyTypes": true,
+    "useUnknownInCatchVariables": true,
+    "strictNullChecks": true,
+    "noUncheckedIndexedAccess": true,
+    "noUncheckedSideEffectImports": true
+  },
+  "files": [],
+  "references": [{ "path": "./server" }, { "path": "./client" }]
+}
